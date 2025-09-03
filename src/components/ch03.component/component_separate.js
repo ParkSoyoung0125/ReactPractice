@@ -46,10 +46,10 @@ function App(){
     
     return(
         <div className = "App">
-            <Top></Top>
-            <Content></Content>
-            <Bottom></Bottom>
-            <Top></Top>
+            <Top/>
+            <Content/>
+            <Bottom/>
+            <Top/>
         </div>
     );
 }
