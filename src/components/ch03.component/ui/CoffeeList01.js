@@ -39,7 +39,7 @@ function App() {
                     <tr>
                         <td>{coffee.id}</td>
                         <td>{coffee.name}</td>
-                        <td>{coffee.price}</td>
+                        <td>{coffee.price.toLocaleString()}</td>
                         <td>{getComment(coffee.price)}</td>
                         <td>{coffee.description}</td>
                     </tr>

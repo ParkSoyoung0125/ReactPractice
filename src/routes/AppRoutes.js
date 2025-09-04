@@ -23,6 +23,7 @@ import AppComponentSeparate from '../components/ch03.component/component_separat
 import AppusePops from '../components/ch03.component/use_props';
 import AppFileProps from '../components/ch03.component/file_separator';
 import AppArrayAndTable from '../components/ch03.component/array_and_table_01';
+import AppArrayAndTable2 from '../components/ch03.component/array_and_table_02';
 
 function AppRoutes() {
     return (
@@ -42,6 +43,7 @@ function AppRoutes() {
             <Route path="/use_props" element={<AppusePops />} />
             <Route path="/file_separator" element={<AppFileProps />} />
             <Route path="/array_and_table_01" element={<AppArrayAndTable />} />
+            <Route path="/array_and_table_02" element={<AppArrayAndTable2 />} />
 
         </Routes>
     );
