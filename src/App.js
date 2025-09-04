@@ -13,25 +13,29 @@ function App(){
         <div className="App">
             <h1>React Example Navigation</h1> 
             <table border = "1">
-                <tr>
-                    {menuData.map((item) => (
-                        <th>{item.chapter}</th>
-                    ))}
-                    
-                </tr>
-                <tr>
-                    {menuData.map((item) => (
-                        <td key = {item.chapter}>
-                            <ul>
-                                {item.items.map((bean) => (
-                                    <li key = {bean.path}>
-                                        <Link to={bean.path}>{bean.lable}</Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </td>
-                    ))}
-                </tr>
+                <thead>
+                    <tr>
+                        {menuData.map((item,index) => (
+                            <th key={index}>{item.chapter}</th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {menuData.map((item) => (
+                            <td key = {item.chapter}>
+                                <ul>
+                                    {item.items.map((bean) => (
+                                        <li key = {bean.path}>
+                                            <Link to={bean.path}>{bean.lable}</Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </td>
+                        ))}
+                    </tr>
+                </tbody>
+                
             </table>
             {/* 라우터 모음 */}
             <AppRouters />

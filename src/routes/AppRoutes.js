@@ -2,7 +2,7 @@
 // 기본적으로 설치가 안되어있어, 차후에 설치를 해주어야 함.
 // npm install react-router-dom (엔터)
 
-import {Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 
 // ./ 은 현재폴더 , ../ 은 상위폴더 (.../은 없음 , ../을 ../../ 식으로 이어붙여서 계속 상위폴더로 타고올라감)
@@ -20,11 +20,15 @@ import AppSpreadOperator from '../components/ch02.es6_syntax/spread_operator';
 import AppClassComponenet from '../components/ch03.component/components01';
 import AppfunctionComponenet from '../components/ch03.component/components02';
 import AppComponentSeparate from '../components/ch03.component/component_separate';
+import AppusePops from '../components/ch03.component/use_props';
+import AppFileProps from '../components/ch03.component/file_separator';
+import AppArrayAndTable from '../components/ch03.component/array_and_table_01';
 
-function AppRoutes(){
-    return(
+function AppRoutes() {
+    return (
         <Routes>
             {/* element 속성에는 컴포넌트 자체가 아니라 JSX 요소를 넣어야합니다. */}
+            <Route path="/" element={<AppLetConst />} />
             <Route path="/let_const" element={<AppLetConst />} />
             <Route path="/template_string" element={<AppTemplateString />} />
             <Route path="/make_subject_list" element={<AppSubjectList />} />
@@ -35,7 +39,10 @@ function AppRoutes(){
             <Route path="/components01" element={<AppClassComponenet />} />
             <Route path="/components02" element={<AppfunctionComponenet />} />
             <Route path="/component_separate" element={<AppComponentSeparate />} />
-            
+            <Route path="/use_props" element={<AppusePops />} />
+            <Route path="/file_separator" element={<AppFileProps />} />
+            <Route path="/array_and_table_01" element={<AppArrayAndTable />} />
+
         </Routes>
     );
 };
