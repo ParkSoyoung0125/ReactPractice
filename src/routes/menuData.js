@@ -34,6 +34,7 @@ export const menuData = [
             { path: '/change_event', lable: '체인지 이벤트' },
             { path: '/mouse_event', lable: '마우스 이벤트' },
             { path: '/key_event', lable: '키보드 이벤트' },
+            { path: '/combo_change', lable: '이벤트 실습' },
 
 
         ]
