@@ -25,10 +25,17 @@ import AppFileProps from '../components/ch03.component/file_separator';
 import AppArrayAndTable from '../components/ch03.component/array_and_table_01';
 import AppArrayAndTable2 from '../components/ch03.component/array_and_table_02';
 
+// ch04장
+import AppClickEvent from '../components/ch04.event_handling/click_event';
+import AppChangeEvent from '../components/ch04.event_handling/change_event';
+import AppMouseEvent from '../components/ch04.event_handling/mouse_event';
+import AppKeyEvent from '../components/ch04.event_handling/key_event';
+
 function AppRoutes() {
     return (
         <Routes>
             {/* element 속성에는 컴포넌트 자체가 아니라 JSX 요소를 넣어야합니다. */}
+            {/*ch02장*/}
             <Route path="/" element={<AppLetConst />} />
             <Route path="/let_const" element={<AppLetConst />} />
             <Route path="/template_string" element={<AppTemplateString />} />
@@ -37,6 +44,8 @@ function AppRoutes() {
             <Route path="/arrow_function" element={<AppArrowFunction />} />
             <Route path="/array_map" element={<AppArrayMap />} />
             <Route path="/spread_operator" element={<AppSpreadOperator />} />
+
+            {/*ch03장*/}
             <Route path="/components01" element={<AppClassComponenet />} />
             <Route path="/components02" element={<AppfunctionComponenet />} />
             <Route path="/component_separate" element={<AppComponentSeparate />} />
@@ -44,6 +53,12 @@ function AppRoutes() {
             <Route path="/file_separator" element={<AppFileProps />} />
             <Route path="/array_and_table_01" element={<AppArrayAndTable />} />
             <Route path="/array_and_table_02" element={<AppArrayAndTable2 />} />
+
+            {/*ch04장*/}
+            <Route path="/click_event" element={<AppClickEvent />} />
+            <Route path="/change_event" element={<AppChangeEvent />} />
+            <Route path="/mouse_event" element={<AppMouseEvent />} />
+            <Route path="/key_event" element={<AppKeyEvent />} />
 
         </Routes>
     );
