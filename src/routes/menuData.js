@@ -35,7 +35,16 @@ export const menuData = [
             { path: '/mouse_event', lable: '마우스 이벤트' },
             { path: '/key_event', lable: '키보드 이벤트' },
             { path: '/combo_change', lable: '이벤트 실습' },
+            { path: '/submit_event', lable: '서브밋 이벤트' },
 
+
+        ]
+    },
+    {
+        chapter: "ch05.hooks",
+        items: [
+            { path: '/use_state_01', lable: '스테이트 실습 01' },
+            { path: '/use_state_02', lable: '스테이트 실습 02' },
 
         ]
     },
