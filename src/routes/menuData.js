@@ -45,6 +45,7 @@ export const menuData = [
         items: [
             { path: '/use_state_01', lable: '스테이트 실습 01' },
             { path: '/use_state_02', lable: '스테이트 실습 02' },
+            { path: '/use_state_03', lable: '스테이트 실습 03' },
 
         ]
     },

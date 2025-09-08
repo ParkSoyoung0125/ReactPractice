@@ -2,13 +2,17 @@ import { useState } from "react";
 
 function App() {
     const imageSize = 120; //  이미지 사이즈
-    /* 관리해야할 상태(state) 정의 */
-    const [color, setColor] = useState('blue'); // 차량 색상
-    const [year, setYear] = useState(2024); // 차량 생산연도
-    const [model, setModel] = useState('avante'); // 차량 모델
-    const [image, setImage] = useState('avante'); // 차량 이미지
-    const [comment, setcomment] = useState('나름 좋아요.'); // 차량 연식에 대한 코멘트
-    const [modelName, setModelName] = useState('아반떼(avante)'); // 차량 모델
+    /* 관리해야할 상태(state) 개수가 많으면 객체 형식으로 정의하는 것이 유리함. */
+    const [car, setcar] = useState({
+        color: 'blue',
+        year: '2024',
+        model: 'avante',
+        image: 'blue',
+        comment: '나름 좋아요.',
+        modelName: '아반떼(avante)',
+    });
+
+
 
     // 중첩 배열을 사용한 Map 객체 정의
     const carMap = new Map([
@@ -25,24 +29,24 @@ function App() {
         console.log('이벤트 타겟 값 : ' + targetv);
 
         if (targetId === 'model') {
-            setImage(targetv);
-            setModel(targetv);
+            car.setImage(targetv);
+
             // get(key) : key를 사용하여 해당요소의 value를 반환받음.
-            const message = `${carMap.get(targetv)}(${targetv})`;
-            setModelName(message);
+            // const message = `${carMap.get(targetv)}(${targetv})`;
+            // setModel(message);
         } else if (targetId === 'color') {
-            setColor(targetv);
-        } else if (targetId === 'year') {
-            setYear(targetv);
-            let comment = '';
-            if (targetv === '2023') {
-                comment = '구형입니다.'
-            } else if (targetv === '2024') {
-                comment = '쓸만 합니다.';
-            } else if (targetv === '2025') {
-                comment = '신식입니다.';
-            } else { }
-            setcomment(comment);
+            car.setColor(targetv);
+            // } else if (targetId === 'year') {
+            //     setYear(targetv);
+            //     let comment = '';
+            //     if (targetv === '2023') {
+            //         comment = '구형입니다.'
+            //     } else if (targetv === '2024') {
+            //         comment = '쓸만 합니다.';
+            //     } else if (targetv === '2025') {
+            //         comment = '신식입니다.';
+            //     } else { }
+            //     setcomment(comment);
         }
     };
 
@@ -59,7 +63,7 @@ function App() {
 
             {/* entity는 HTML에서 특수문자를 표현하는 기법으로, 규칙을 정해놓은 문자열이 있습니다. */}
             차종 변경 : &nbsp;
-            <select id="model" value={model} onChange={ChangeTest}>
+            <select id="model" value={car.model} onChange={ChangeTest}>
                 <option value="avante">아반떼</option>
                 <option value="sonata">소나타</option>
                 <option value="grandeur">그랜져</option>
@@ -84,12 +88,12 @@ function App() {
             <br /><br />
 
             <p>
-                <span style={{ color: color, fontWeight: 'bolder' }}>{color} </span>색상의 {year}년산 {model}모델
+                <span style={{ color: car.color, fontWeight: 'bolder' }}>{car.color} </span>색상의 {car.year}년산 {car.model}모델
                 <br />
                 {comment}
             </p>
             <br /><br />
-            <img src={`/images/${image}.png`} alt={image} width={imageSize} height={imageSize} />
+            <img src={`/images/${car.image}.png`} alt={image} width={imageSize} height={imageSize} />
         </div>
 
     );
