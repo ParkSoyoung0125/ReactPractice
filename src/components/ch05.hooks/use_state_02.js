@@ -2,13 +2,14 @@ import { useState } from "react";
 
 function App() {
     const imageSize = 120; //  이미지 사이즈
-    /* 관리해야할 상태 정이 */
-    const [color, setColor] = useState('blue');
-    const [year, setYear] = useState(2024);
-    const [model, setModel] = useState('sonata');
-    const [image, setImage] = useState('avante');
-    const [comment, setcomment] = useState('나름 좋아요.');
+    /* 관리해야할 상태(state) 정의 */
+    const [color, setColor] = useState('blue'); // 차량 색상
+    const [year, setYear] = useState(2024); // 차량 생산연도
+    const [model, setModel] = useState('sonata'); // 차량 모델
+    const [image, setImage] = useState('avante'); // 차량 이미지
+    const [comment, setcomment] = useState('나름 좋아요.'); // 차량 연식에 대한 코멘트
 
+    // 중첩 배열을 사용한 Map 객체 정의
     const carMap = new Map([
         ['avante', '아반떼'],
         ['sonata', '소나타'],
@@ -23,8 +24,10 @@ function App() {
         console.log('이벤트 타겟 값 : ' + targetv);
 
         if (targetId === 'model') {
-            const message = `${carMap.get(targetv)}(${targetv})`;
             setImage(targetv);
+
+            // get(key) : key를 사용하여 해당요소의 value를 반환받음.
+            const message = `${carMap.get(targetv)}(${targetv})`;
             setModel(message);
         } else if (targetId === 'color') {
             setColor(targetv);
