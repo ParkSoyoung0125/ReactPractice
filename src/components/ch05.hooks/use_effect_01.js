@@ -26,15 +26,33 @@ function App() {
         setImage(`${imagePath}/${randomImage}`);
     }
 
+    // 설쌤 코드 (cleanup 사용X)
+    // const MyTimer = () => {
+    //     // setTimeout(동작, 인터벌);
+    //     const timerId = setTimeout(SomeAction, interval);
+    //     setTimeout(() => {
+    //         clearTimeout(timerId);
+    //         console.log(`타이머 종료(5초 경과)`);
+    //     }, 5000);
+    // }
+
+    // cleanup을 반환하도록 수정
     const MyTimer = () => {
-        // setTimeout(동작, 인터벌);
-        const timerId = setTimeout(SomeAction, interval);
-        setTimeout(() => {
-            clearTimeout(timerId);
+        const timerId = setInterval(SomeAction, interval);
+        const stopId = setTimeout(() => {
+            clearInterval(timerId);
             console.log(`타이머 종료(5초 경과)`);
         }, 5000);
-    }
-    useEffect(MyTimer);
+
+        // cleanup : 언마운트/재실행 전에 모두 해제
+        return () => {
+            clearInterval(timerId);
+            clearTimeout(stopId);
+        };
+    };
+
+    // 의존성 배열 추가 - 마운트 시 1회만 등록
+    useEffect(MyTimer, []);
 
     return (
         <>
