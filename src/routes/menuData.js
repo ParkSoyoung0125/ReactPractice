@@ -53,5 +53,14 @@ export const menuData = [
 
         ]
     },
+    {
+        chapter: "ch06. IT Cafe",
+        items: [
+            { path: '/coffee_bread_01', lable: 'IT Cafe01' },
+            { path: '/coffee_bread_02', lable: 'IT Cafe02' },
+
+
+        ]
+    },
     //여기에 4장, 5장 등등...추가되는 내용을 계속 계속 추가하면 됩니다.
 ];
