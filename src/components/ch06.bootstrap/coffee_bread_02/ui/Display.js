@@ -21,7 +21,7 @@ function App({ product }) {
                                     </tr>
                                     <tr>
                                         <td>단가</td>
-                                        <td>{Number(product.price).toLocaleString()}원</td>
+                                        <td>{product.price.toLocaleString()}원</td>
                                     </tr>
                                     <tr>
                                         <td>카테고리</td>
@@ -29,7 +29,7 @@ function App({ product }) {
                                     </tr>
                                     <tr>
                                         <td>재고</td>
-                                        <td>{Number(product.stock).toLocaleString()} 개</td>
+                                        <td>{product.stock.toLocaleString()} 개</td>
                                     </tr>
                                 </tbody>
                             </Table>
