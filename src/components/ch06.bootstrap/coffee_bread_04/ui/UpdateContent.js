@@ -23,6 +23,7 @@ function App({ product, onSubmitUpdate }) {
     const SubmittedData = (event) => {
         event.preventDefault(); // 이벤트 전파 방지 = submit으로 특정페이지로 이동할게 아니라 데이터 전송용이기 때문에 preventDefault()로 전파방지
         onSubmitUpdate(forUpdateData);
+        console.log(forUpdateData);
     }
 
     // 이 함수(이벤트 핸들러)는 입력 양식이 변경될때마다 호출이 됨.

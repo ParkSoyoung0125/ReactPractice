@@ -94,20 +94,20 @@ function App() {
 
     // 사용자가 수정화면에서 내용을 수정하고, [수정] 버튼 누르기
     const UpdateData = (formData) => {
-        const newData = [{
+        const newData = {
             ...formData,
-            id: formData.id.value,
-            name: formData.name.value,
-            price: Number(formData.price.value),
-            category: formData.category.value,
-            stock: Number(formData.stock.value),
-            image: formData.image.value,
-            description: formData.description.value,
-        }];
+            id: formData.id,
+            name: formData.name,
+            price: Number(formData.price),
+            category: formData.category,
+            stock: Number(formData.stock),
+            image: formData.image,
+            description: formData.description,
+        };
 
         console.log(newData);
 
-        setProducts(previous => (previous.id === newData.id ? { ...previous, ...newData } : previous));
+        setProducts(products.map((bean) => bean.id === newData.id ? {...bean,...newData } : bean));
         setSelectedId(newData.id);
         setMode('detail'); // 읽기모드로 변경
     }
