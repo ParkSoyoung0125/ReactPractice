@@ -1,7 +1,6 @@
 import { Button, InputGroup, Form } from "react-bootstrap";
 import './../css/FormStyle.css';
 import { useState } from "react";
-import { isDisabled } from "@testing-library/user-event/dist/utils";
 
 /* 등록 화면과의 차이점
 1. 코멘트 변경 : 등록 -> 수정
@@ -19,11 +18,11 @@ function App({ product, onSubmitUpdate }) {
     const comment = '수정'; // 코드에서 반복적으로 사용되는 단어는 변수로 만들어서 JSX 문법으로 처리
 
     // 넘겨진 이전 상품 정보를 관리해야 하므로, state를 값으로 할당
-    const [formData, setFormData] = useState(product);
+    const [forUpdateData, setforUpdateData] = useState(product);
 
     const SubmittedData = (event) => {
         event.preventDefault(); // 이벤트 전파 방지 = submit으로 특정페이지로 이동할게 아니라 데이터 전송용이기 때문에 preventDefault()로 전파방지
-        onSubmitUpdate(formData);
+        onSubmitUpdate(forUpdateData);
     }
 
     // 이 함수(이벤트 핸들러)는 입력 양식이 변경될때마다 호출이 됨.
@@ -33,7 +32,7 @@ function App({ product, onSubmitUpdate }) {
 
         /* 전개 연산자를 사용하여 과거 데이터를 보존하되, 신규 바뀐 정보만 다시 갱신하기
         previous 변수는 리액트가 자동으로 넣어주는 값으로, 이름은 개발자 마음대로 지정함. */
-        setFormData((previous) => ({ ...previous, [name]: value }));
+        setforUpdateData((previous) => ({ ...previous, [name]: value }));
     }
 
     return (
@@ -43,21 +42,21 @@ function App({ product, onSubmitUpdate }) {
                 <InputGroup className="custom-input-group">
                     <InputGroup.Text className="input-group-text">아이디</InputGroup.Text>
 
-                    <input name="id" type="hidden" onChange={InputChange} value={product.id} />
+                    <input name="id" type="hidden" onChange={InputChange} value={forUpdateData.id} />
 
-                    <Form.Control type="text" name="fakeid" onChange={InputChange} value={product.id} disabled></Form.Control>
+                    <Form.Control type="text" name="fakeid" onChange={InputChange} value={forUpdateData.id} disabled></Form.Control>
                 </InputGroup>
                 <InputGroup className="custom-input-group">
                     <InputGroup.Text className="input-group-text">이름</InputGroup.Text>
-                    <Form.Control type="text" name="name" onChange={InputChange} value={product.name}></Form.Control>
+                    <Form.Control type="text" name="name" onChange={InputChange} value={forUpdateData.name}></Form.Control>
                 </InputGroup>
                 <InputGroup className="custom-input-group">
                     <InputGroup.Text className="input-group-text">가격</InputGroup.Text>
-                    <Form.Control type="text" name="price" onChange={InputChange} value={product.price}></Form.Control>
+                    <Form.Control type="text" name="price" onChange={InputChange} value={forUpdateData.price}></Form.Control>
                 </InputGroup>
                 <InputGroup className="custom-input-group">
                     <InputGroup.Text className="input-group-text">카테고리</InputGroup.Text>
-                    <Form.Select name="category" onChange={InputChange} value={product.category}>
+                    <Form.Select name="category" onChange={InputChange} value={forUpdateData.category}>
                         <option value="-">--카테고리를 선택해주세요</option>
                         <option value="bread">빵</option>
                         <option value="beverage">음료수</option>
@@ -65,15 +64,15 @@ function App({ product, onSubmitUpdate }) {
                 </InputGroup>
                 <InputGroup className="custom-input-group">
                     <InputGroup.Text className="input-group-text">재고</InputGroup.Text>
-                    <Form.Control type="text" name="stock" onChange={InputChange} value={product.stock}></Form.Control>
+                    <Form.Control type="text" name="stock" onChange={InputChange} value={forUpdateData.stock}></Form.Control>
                 </InputGroup>
                 <InputGroup className="custom-input-group">
                     <InputGroup.Text className="input-group-text">이미지</InputGroup.Text>
-                    <Form.Control type="text" name="image" onChange={InputChange} value={product.image}></Form.Control>
+                    <Form.Control type="text" name="image" onChange={InputChange} value={forUpdateData.image}></Form.Control>
                 </InputGroup>
                 <InputGroup className="custom-input-group">
                     <InputGroup.Text className="input-group-text">상세설명</InputGroup.Text>
-                    <Form.Control as="textarea" name="description" onChange={InputChange} value={product.description}></Form.Control>
+                    <Form.Control as="textarea" name="description" onChange={InputChange} value={forUpdateData.description}></Form.Control>
                 </InputGroup>
                 <div className="d-grid gap-2">
                     <Button variant="primary" size="lg">

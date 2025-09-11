@@ -34,7 +34,7 @@ function App() {
         setSelectedId(Number(id)); // 선택한 상품의 id가 변경됨.
         setMode('detail'); // 상세보기 모드로 변환.
     }
-
+    console.log('products is array?', Array.isArray(products), products);
     const getProductById = () => {
         // selectedId : 임의의 사용자가 클릭한 상품의 id
         // 상품 목록(products)에서 filter 함수를 이용하여 추출
@@ -91,9 +91,25 @@ function App() {
 
         setMode('read'); // 읽기모드로 변경
     }
-    // 사용자가 수정화면에서 내용을 수정하고, [수정] 버튼 누르기
-    const UpdateData = () => {
 
+    // 사용자가 수정화면에서 내용을 수정하고, [수정] 버튼 누르기
+    const UpdateData = (formData) => {
+        const newData = [{
+            ...formData,
+            id: formData.id.value,
+            name: formData.name.value,
+            price: Number(formData.price.value),
+            category: formData.category.value,
+            stock: Number(formData.stock.value),
+            image: formData.image.value,
+            description: formData.description.value,
+        }];
+
+        console.log(newData);
+
+        setProducts(previous => (previous.id === newData.id ? { ...previous, ...newData } : previous));
+        setSelectedId(newData.id);
+        setMode('detail'); // 읽기모드로 변경
     }
 
     return (
