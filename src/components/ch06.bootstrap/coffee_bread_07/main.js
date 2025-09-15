@@ -175,12 +175,13 @@ function App() {
     // 정렬 정보를 사용하여 정렬을 수행해주는 함수
     // category 조회시 영문이 아닌 한글로 수정하도록 함.
     const Ordering = (orderInformation) => {
-        const column = orderInformation.column; // 정렬할 때 사용할 컬럼
-        const method = orderInformation.ordering; // 정렬 방법(오름차, 내림차)
+        const column = orderInformation.column; // 예: 'name' | 'price' | 'category'
+        const method = orderInformation.ordering; // 'asc' | 'desc'
 
-        const textColumns = ['name', 'category']; // 문자열 컬럼 등록
+        const textColumns = ['name', 'category']; /* 문자열로 취급하고 싶은 컬럼 이름을 미리 배열에 정해둔 거,
+        숫자 컬럼인 'price'는 안 넣음 */
 
-        const isCharacter = textColumns.includes(column); // 문자열 컬럼인지 판단
+        const isCharacter = textColumns.includes(column); // includes는 배열에 그 값이 들어있는지 확인하는 함수 → true/false 반환.
 
         products.sort((a, b) => {
             let aValue = a[column];
