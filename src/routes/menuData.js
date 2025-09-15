@@ -2,6 +2,13 @@
 // export 키워드는 외부에서 참조 가능하도록 길을 틔워줌
 export const menuData = [
     {
+        chapter: "Practice",
+        items: [
+            { path: '/practice01', lable: '연습 및 실습01' },
+
+        ]
+    },
+    {
         chapter: "ch02.ECMAScript",
         items: [
             { path: '/let_const', lable: 'let & const 실습' },
@@ -61,6 +68,8 @@ export const menuData = [
             { path: '/coffee_bread_03', lable: 'IT Cafe03' },
             { path: '/coffee_bread_04', lable: 'IT Cafe04' },
             { path: '/coffee_bread_05', lable: 'IT Cafe05' },
+            { path: '/coffee_bread_06', lable: 'IT Cafe06' },
+            { path: '/coffee_bread_07', lable: 'IT Cafe07' },
 
 
         ]

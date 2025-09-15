@@ -6,6 +6,10 @@ import { Routes, Route } from 'react-router-dom';
 
 
 // ./ 은 현재폴더 , ../ 은 상위폴더 (.../은 없음 , ../을 ../../ 식으로 이어붙여서 계속 상위폴더로 타고올라감)
+
+// Practice
+import AppPractice from '../components/Practice/practice01';
+
 //ch02 장
 // import 앱이름(임의로 설정한 이름) from '전체경로/파일명'
 import AppLetConst from '../components/ch02.es6_syntax/let_const';
@@ -48,10 +52,15 @@ import AppCAFE02 from '../components/ch06.bootstrap/coffee_bread_02/main';
 import AppCAFE03 from '../components/ch06.bootstrap/coffee_bread_03/main';
 import AppCAFE04 from '../components/ch06.bootstrap/coffee_bread_04/main';
 import AppCAFE05 from '../components/ch06.bootstrap/coffee_bread_05/main';
+import AppCAFE06 from '../components/ch06.bootstrap/coffee_bread_06/main';
+import AppCAFE07 from '../components/ch06.bootstrap/coffee_bread_07/main';
 
 function AppRoutes() {
     return (
         <Routes>
+            {/*Practice*/}
+            <Route path="/practice01" element={<AppPractice />} />
+
             {/* element 속성에는 컴포넌트 자체가 아니라 JSX 요소를 넣어야합니다. */}
             {/*ch02장*/}
             <Route path="/" element={<AppLetConst />} />
@@ -95,6 +104,8 @@ function AppRoutes() {
             <Route path="/coffee_bread_03" element={<AppCAFE03 />} />
             <Route path="/coffee_bread_04" element={<AppCAFE04 />} />
             <Route path="/coffee_bread_05" element={<AppCAFE05 />} />
+            <Route path="/coffee_bread_06" element={<AppCAFE06 />} />
+            <Route path="/coffee_bread_07" element={<AppCAFE07 />} />
 
         </Routes>
     );
