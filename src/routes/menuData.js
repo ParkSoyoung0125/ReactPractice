@@ -9,6 +9,21 @@ export const menuData = [
         ]
     },
     {
+        chapter: "ch01. Basic",
+        items: [
+            { path: '/make_array_01', lable: '배열 실습 01' },
+            { path: '/math_object_01', lable: 'Math 객체 실습 01' },
+            { path: '/if_exercise', lable: 'If 구문 실습' },
+            { path: '/switch_exercise', lable: 'Switch 구문 실습' },
+            { path: '/typeof_number', lable: 'Typeof와 Number 실습' },
+            { path: '/form_exam', lable: 'form 예제' },
+            { path: '/list_exam', lable: '목록(ol, ul) 예제' },
+            { path: '/table_exam', lable: 'table 예제' },
+            { path: '/etc_exam', lable: '기타 예제' },
+
+        ]
+    },
+    {
         chapter: "ch02.ECMAScript",
         items: [
             { path: '/let_const', lable: 'let & const 실습' },
